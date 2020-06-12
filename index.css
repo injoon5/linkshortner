@@ -41,7 +41,7 @@ form,
     font-family: 'NanumSquare';
     margin-bottom: 10px;
     padding: 15px;
-    background-color: #1337a5;
+    background-color: #000000;
     border: 1px solid #d6d6d6;
     box-shadow: 3px 3px 0px #bababa;
     display: inline-block;
@@ -54,7 +54,7 @@ form,
     margin-bottom: 25px;
     padding: 0px 10px 5px 10px;
     margin: 8px auto 8px;
-    border: 2px solid #0e2877;
+    border: 2px solid #000000;
     box-shadow: 5px 6px 0px #0e2877;
     width: 95%;
     max-width: 600px;
