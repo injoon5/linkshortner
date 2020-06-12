@@ -11,7 +11,7 @@ let pushJSON = (address, longurl, shorturl) => {
 
 let cinp = () => {
     document.getElementById("erbox").innerHTML = "";
-    let cival = document.getElementById("custominput").value;
+    let cival = document.getElementById("custominput1").value;
 
     let res = JSON.parse(fetchJSON(endpoint + '/?q=s:' + cival))[0]["l"];
     let data = res;
@@ -44,11 +44,11 @@ let getrandom = () => {
 };
 
 let genhash = () => {
-    if (document.getElementById("custominput").value == "") {
+    if (document.getElementById("custominput1").value == "") {
         window.location.hash = getrandom();
         check_is_unique();
     } else {
-        window.location.hash = document.getElementById("custominput").value;
+        window.location.hash = document.getElementById("custominput1").value;
 
     }
 };
@@ -114,7 +114,7 @@ let shorturl = () => {
         document.getElementById("erbox").innerHTML = "❌ Invalid URL";
     } else {
         document.getElementById("erbox").innerHTML = "";
-        if (document.getElementById("custominput").value == "") {
+        if (document.getElementById("custominput1").value == "") {
             genhash();
             send_request(longurl);
 
@@ -128,14 +128,14 @@ let shorturl = () => {
                 } else {
                     document.getElementById("erbox").style.color = "red";
                     document.getElementById("erbox").innerHTML = "❌ Custom Address Already Used, Choose Another";
-                    document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
-                    document.getElementById("custominput").value = "";
+                    document.getElementById("custominput1").placeholder = document.getElementById("custominput").value;
+                    document.getElementById("custominput1").value = "";
                 }
             } else {
                 document.getElementById("erbox").style.color = "red";
                 document.getElementById("erbox").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
-                document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
-                document.getElementById("custominput").value = "";
+                document.getElementById("custominput1").placeholder = document.getElementById("custominput").value;
+                document.getElementById("custominput1").value = "";
 
             }
         }
