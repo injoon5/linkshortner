@@ -94,7 +94,7 @@ let copyer = (containerid) => {
 
 let send_request = (url) => {
     let longurl = url;
-    let shorturl = window.location.hash.substr(1)
+    let shorturl = window.location.hash
     let address = endpoint + "/";
     // console.log(address)
     pushJSON(address, longurl, shorturl);
