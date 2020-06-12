@@ -11,7 +11,7 @@ let pushJSON = (address, longurl, shorturl) => {
 
 let cinp = () => {
     document.getElementById("erbox").innerHTML = "";
-    let cival = document.getElementById("custominput1").value;
+    let cival = document.getElementById("custominput").value;
 
     let res = JSON.parse(fetchJSON(endpoint + '/?q=s:' + cival))[0]["l"];
     let data = res;
@@ -36,19 +36,19 @@ let geturl = () => {
 
 let getrandom = () => {
     let text = "";
-    let possible = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for (let i = 0; i < 3; i++)
+    for (let i = 0; i < 5; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
 };
 
 let genhash = () => {
-    if (document.getElementById("custominput1").value == "") {
+    if (document.getElementById("custominput").value == "") {
         window.location.hash = getrandom();
         check_is_unique();
     } else {
-        window.location.hash = document.getElementById("custominput1").value;
+        window.location.hash = document.getElementById("custominput").value;
 
     }
 };
@@ -94,7 +94,7 @@ let copyer = (containerid) => {
 
 let send_request = (url) => {
     let longurl = url;
-    let shorturl = window.location.hash
+    let shorturl = window.location.hash.substr(1)
     let address = endpoint + "/";
     // console.log(address)
     pushJSON(address, longurl, shorturl);
@@ -114,7 +114,7 @@ let shorturl = () => {
         document.getElementById("erbox").innerHTML = "❌ Invalid URL";
     } else {
         document.getElementById("erbox").innerHTML = "";
-        if (document.getElementById("custominput1").value == "") {
+        if (document.getElementById("custominput").value == "") {
             genhash();
             send_request(longurl);
 
@@ -128,14 +128,14 @@ let shorturl = () => {
                 } else {
                     document.getElementById("erbox").style.color = "red";
                     document.getElementById("erbox").innerHTML = "❌ Custom Address Already Used, Choose Another";
-                    document.getElementById("custominput1").placeholder = document.getElementById("custominput").value;
-                    document.getElementById("custominput1").value = "";
+                    document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
+                    document.getElementById("custominput").value = "";
                 }
             } else {
                 document.getElementById("erbox").style.color = "red";
                 document.getElementById("erbox").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
-                document.getElementById("custominput1").placeholder = document.getElementById("custominput").value;
-                document.getElementById("custominput1").value = "";
+                document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
+                document.getElementById("custominput").value = "";
 
             }
         }
@@ -146,7 +146,6 @@ let shorturl = () => {
 document.getElementById("sbtn").addEventListener("click", shorturl);
 
 console.log(`
-
 ███████╗ ██████╗ ███████╗███████╗██╗   ██╗██████╗ ██╗     
 ██╔════╝██╔═══██╗██╔════╝██╔════╝██║   ██║██╔══██╗██║     
 █████╗  ██║   ██║███████╗███████╗██║   ██║██████╔╝██║     
@@ -155,5 +154,4 @@ console.log(`
 ╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
                                                                                                                                
 PLEASE DON'T TYPE ANYTHING BELLOW UNLESS YOU ARE A DEVELOPER!
-
 `)
