@@ -100,7 +100,7 @@ let send_request = (url) => {
     pushJSON(address, longurl, shorturl);
 
     document.getElementById('shortenedURL').value = window.location.href;
-    document.getElementById('sucess').innerHTML = "Short URL Copied to Clipboard!";
+    document.getElementById('sucess').innerHTML = "짧은 URL이 복사되었습니다.";
     copyer("shortenedURL");
 };
 
@@ -111,7 +111,7 @@ let shorturl = () => {
     let protocol_ok = re.test(longurl);
     if (!protocol_ok) {
         document.getElementById("erbox").style.color = "red";
-        document.getElementById("erbox").innerHTML = "❌ Invalid URL";
+        document.getElementById("erbox").innerHTML = "❌ 없는 URL";
     } else {
         document.getElementById("erbox").innerHTML = "";
         if (document.getElementById("custominput").value == "") {
@@ -146,12 +146,14 @@ let shorturl = () => {
 document.getElementById("sbtn").addEventListener("click", shorturl);
 
 console.log(`
-███████╗ ██████╗ ███████╗███████╗██╗   ██╗██████╗ ██╗     
-██╔════╝██╔═══██╗██╔════╝██╔════╝██║   ██║██╔══██╗██║     
-█████╗  ██║   ██║███████╗███████╗██║   ██║██████╔╝██║     
-██╔══╝  ██║   ██║╚════██║╚════██║██║   ██║██╔══██╗██║     
-██║     ╚██████╔╝███████║███████║╚██████╔╝██║  ██║███████╗
-╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+  ____ _____     _   _    _ _____  _      
+  / __ \_   _|   | | | |  | |  __ \| |     
+ | |  | || |     | | | |  | | |__) | |     
+ | |  | || | _   | | | |  | |  _  /| |     
+ | |__| || || |__| | | |__| | | \ \| |____ 
+  \____/_____\____/   \____/|_|  \_\______|
+                                           
+                                           
                                                                                                                                
 PLEASE DON'T TYPE ANYTHING BELLOW UNLESS YOU ARE A DEVELOPER!
 `)
